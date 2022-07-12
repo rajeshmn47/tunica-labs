@@ -80,7 +80,7 @@ setNotification(true)
             </div>
             <div className='editbtns'>
     <button className='cancel' onClick={handleClose}>cancel</button>
-    <button className='add' type='submit'>add</button>
+    <button className='add' onClick={(e)=>handlesubmit(e,values.id)} type='submit'>add</button>
     </div>
             </div>
 
