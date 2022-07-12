@@ -294,3 +294,77 @@ table a{
 .homeroute{
   color: red;
 }
+
+.popp{
+  display: flex;
+  height: 45vh;
+}
+.popup_left{
+  background-color:red;
+  height: 100%;
+  width: 40%;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vh 1vw;
+  box-sizing: border-box;
+  justify-content: center;
+  text-transform: capitalize;
+  box-sizing: border-box;
+}
+.popup_right{
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+
+.cancel{
+  background-color: #FFBA41;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: 1px;
+  padding: 1vh 1vw;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  width: 7vw;
+  margin: 2vh 0vw;
+}
+.add{
+  background-color:#57CA85;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: px;
+  padding: 1vh 1vw;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  width: 7vw;
+}
+.editbtns{
+  margin-top: 29vh;
+}
+.forminput{
+  height: 4vh;
+  border:none;
+  border: 1px solid #cccccc;
+  padding: 0.5vh 1vw;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0.2vh 0vw;
+}
+.radiobtnse{
+  width:10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

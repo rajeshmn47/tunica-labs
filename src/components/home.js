@@ -13,19 +13,43 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import { useNavigate } from 'react-router-dom';
+import Pagination from '@mui/material/Pagination';
+import Edit from './edit.js'
+ 
 
-function Home() {
+function Home({values,setValues,students,setStudents}) {
 const[route,setRoute]=useState()
+const[page,setPage]=useState(1)
+const[open,setOpen]=useState(false)
+const[message,setMessage]=useState()
+const[pagecount,setPagecount]=useState(Math.ceil(students.length/8))
+const[studentsperpage,setStudentsperpage]=useState()
+const[notification,setNotification]=useState(false)
 const navigate=useNavigate()
-const symbols=new Array(16).fill(null)
-const table=new Array(9).fill(null)
+
 useEffect(()=>{
 setRoute('/home')
-},[])
+const students_perpage=students.filter((s,index)=>index>=(page-1)*8&&index<page*8)
+setStudentsperpage(students_perpage)
+setPagecount(Math.ceil(students.length/8))
+console.log(pagecount,'rajuespagecount',students.length/8,students)
+},[page,students])
 
 const handleclick=(a)=>{
     setRoute(a)
     navigate(a)
+}
+const handleclickedit=(i)=>{
+    setValues(students.find((s)=>!(s.id===i)))
+    setOpen(true)
+}
+const handlepagechange=(event,newPage)=>{
+console.log(newPage)
+setPage(newPage)
+}
+const handledelete=(i)=>{
+    setStudents(students.filter((s)=>!(s.id===i)))
+
 }
   return (
   <>
@@ -91,34 +115,34 @@ Class
     </th> 
         </tr>  
 <tbody>
-{table.map((t,index)=><>
+{studentsperpage?.map((t,index)=><>
         <tr className='tablerows'>
             <td>
         {index+1}
                 </td>
                 
                 <td>
-        Student Name
+        {t.name}
                 </td>
                 <td>
-        10
+        {t.age}
                 </td>
                 <td>
-        Model School
+        {t.school}
                 </td>
                 <td>
-        3
+        {t.class}
                 </td> 
                 <td>
-        A
+        {t.division}
                 </td>          
                 <td>
-        Active
+        {t.active&&t.active}
                 </td> 
                 <td>
-        <a>Edit</a>
+        <a onClick={()=>handleclickedit(t.id)}>edit</a>
               
-        <a>Delete</a>
+        <a onClick={()=>handledelete(t.id)}>Delete</a>
                 </td>                   
                 </tr>    
    
@@ -126,17 +150,8 @@ Class
     </tbody>
     </table>
     <div className='pages'>
-    <ArrowBackIosIcon style={{fontSize:'12px'}}/>
-    <div className='num'>
-        1
-    </div>
-    <div className='num'>
-        2
-    </div>
-    <div className='num'>
-        3
-    </div>
-    <ArrowForwardIosIcon style={{fontSize:'12px'}}/>
+ 
+    <Pagination count={pagecount} onChange={handlepagechange} variant="outlined" shape="rounded" />
     </div>
   
 </div>
@@ -144,7 +159,9 @@ Class
 </div>
 </div>
   </div>
-
+  <Edit notification={notification} setNotification={setNotification} values={values} open={open}
+   setOpen={setOpen}   setValues={setValues} setStudents={setStudents} 
+   students={students} setMessage={setMessage}/>
   </>
   );
 }

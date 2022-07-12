@@ -14,18 +14,33 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import { useNavigate } from 'react-router-dom';
 
-function Addstudent() {
+function Addstudent({values,setValues,students,setStudents}) {
 const symbols=new Array(16).fill(null)
 const table=new Array(9).fill(null)
 const[route,setRoute]=useState()
+
 const navigate=useNavigate()
 useEffect(()=>{
     setRoute('/addstudent')
     },[])
+
     const handleclick=(a)=>{
         setRoute(a)
         navigate(a)
-    }   
+    }  
+const handlechange=(e)=>{
+  var name=e.target.name
+  var value=e.target.value
+  setValues({...values,[name]:value})
+} 
+const handlesubmit=(e)=>{
+  e.preventDefault()
+  setValues({...values,id:Math.random()})
+  console.log(values)
+  setStudents([...students,values])
+  console.log(students)
+  
+}
   return (
   <>
   <div className='navbar'>
@@ -48,39 +63,42 @@ useEffect(()=>{
 </div>
 <div className='maintwo'>
    <h5 style={{color:'red',fontSize:'16px'}}>Add Student</h5>
-<div className='addinputs'>
+  <form className='addinputs' type='post' onSubmit={handlesubmit}>
+
 <div className='formfield'>
     <h2>Full Name</h2>
-<input type='text' className='addinput' placeholder='Name'/>
+<input type='text' name='name' value={values.name} onChange={handlechange} className='addinput' placeholder='Name'/>
 </div>
 <div className='formfield'>
 <h2>Date Of Birth</h2>
-<input type='text' className='addinput' placeholder='DD/MM/YYYY'/>
+<input type='text' name='age' value={values.age} onChange={handlechange} className='addinput' placeholder='DD/MM/YYYY'/>
 </div>
 <div className='formfield'>
 <h2>School</h2>
-<input type='text' className='addinput' placeholder='select'/>
+<input type='text' name='school' value={values.school} onChange={handlechange} className='addinput' placeholder='select'/>
 </div>
 <div className='formfield'>
 <h2>Class</h2>
-<input type='text' className='addinput' placeholder='select'/>
+<input type='text' name='class' value={values.class} onChange={handlechange} className='addinput' placeholder='select'/>
 </div>
 <div className='formfield'>
 <h2>Division</h2>
-<input type='text' className='addinput' placeholder='select'/>
+<input type='text' name='division' value={values.division} onChange={handlechange} className='addinput' placeholder='select'/>
 </div>
 <div className='formfieldradio'>
 <h2>status</h2>
 <div className='radiobtns'>
-<input type='radio'  placeholder='Name'/>
+<input type='radio' name='status' value={values.status} onChange={handlechange} placeholder='Name'/>
 <label>Active</label>
-<input type='radio'  placeholder='Name'/>
+<input type='radio' name='status' value={values.status} onChange={handlechange} placeholder='Name'/>
 <label>Invoice</label>
 </div>
 </div>
+<input type='submit' className='addinputbtn' value='Save'/>
+</form>
 </div>
-  </div>
-  <input type='submit' className='addinputbtn' value='Save'/>
+
+ 
   </div>  </div>
   </>
   );
