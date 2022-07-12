@@ -1,7 +1,7 @@
 routes available here are 
-https://tunicalabs.netlify.app/home
-https://tunicalabs.netlify.app/addstudent
-https://tunicalabs.netlify.app/signup
+home route= https://tunicalabs.netlify.app/home 
+add route= https://tunicalabs.netlify.app/addstudent
+signup route= https://tunicalabs.netlify.app/signup
 
 
 # Getting Started with Create React App
