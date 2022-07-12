@@ -1,5 +1,5 @@
 //import logo from './logo.svg';
-import './App.css';
+import './../App.css';
 import axios from 'axios'
 import { useEffect,useState } from 'react';
 import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
@@ -7,7 +7,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import logo from './logo192.png';
+import logo from './../logo192.png';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
