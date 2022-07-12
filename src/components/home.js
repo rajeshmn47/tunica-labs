@@ -19,6 +19,8 @@ import Edit from './edit.js'
 
 function Home({values,setValues,students,setStudents}) {
 const[route,setRoute]=useState()
+const initialsearch={name:'',value:''}
+const[search,setSearch]=useState(initialsearch)
 const[page,setPage]=useState(1)
 const[open,setOpen]=useState(false)
 const[message,setMessage]=useState()
@@ -39,8 +41,38 @@ const handleclick=(a)=>{
     setRoute(a)
     navigate(a)
 }
+const searchstudents=()=>{
+var a=search.name
+var b=search.value
+console.log(search,a,b)
+if(a==='name'){
+ var st= students.filter((s)=>s.name.indexOf(b)>-1)
+}
+if(a==='school'){
+        var st= students.filter((s)=>s.school.indexOf(b)>-1)
+       }
+       if(a==='class'){
+        var st= students.filter((s)=>s.class.indexOf(b)>-1)
+       }
+       if(a==='division'){
+        var st= students.filter((s)=>s.division.indexOf(b)>-1)
+       }
+       if(a==='age'){
+        var st= students.filter((s)=>s.age.indexOf(b)>-1)
+       }
+ console.log(st)
+setStudents([...st])
+}
+const handlesearchchange=(e)=>{
+        var name=e.target.name
+        var value=e.target.value
+        setSearch({name:name,value:value})
+      } 
 const handleclickedit=(i)=>{
-    setValues(students.find((s)=>!(s.id===i)))
+console.log(i)
+    var v=students.find((s)=>(s.id===i))
+    setValues(v)
+    console.log(values)
     setOpen(true)
 }
 const handlepagechange=(event,newPage)=>{
@@ -74,12 +106,12 @@ const handledelete=(i)=>{
 <div className='maintwo'>
    <h5 style={{color:'red',fontSize:'16px'}}>View Student</h5>
 <div className='homeinputs'>
-<input type='text' className='homeinput' placeholder='Name'/>
-<input type='text' className='homeinput' placeholder='Name'/>
-<input type='text' className='homeinput' placeholder='Name'/>
-<input type='text' className='homeinput' placeholder='Name'/>
-<input type='text' className='homeinput' placeholder='Name'/>
-<input type='submit' className='homeinputbtn' value='Search'/>
+<input type='text' className='homeinput' placeholder='Name' name='name' onChange={handlesearchchange}/>
+<input type='text' className='homeinput' placeholder='Age' name='age' onChange={handlesearchchange}/>
+<input type='text' className='homeinput' placeholder='School' name='school' onChange={handlesearchchange}/>
+<input type='text' className='homeinput' placeholder='Class' name='school' onChange={handlesearchchange}/>
+<input type='text' className='homeinput' placeholder='Division' name='division' onChange={handlesearchchange}/>
+<input type='submit' className='homeinputbtn' onClick={searchstudents} value='Search'/>
 </div>
 <div>
     <table id='table'>
@@ -140,9 +172,9 @@ Class
         {t.active&&t.active}
                 </td> 
                 <td>
-        <a onClick={()=>handleclickedit(t.id)}>edit</a>
+        <button className='edit'  onClick={()=>handleclickedit(t.id)}>Edit</button>
               
-        <a onClick={()=>handledelete(t.id)}>Delete</a>
+        <button className='delete'  onClick={()=>handledelete(t.id)}>Delete</button>
                 </td>                   
                 </tr>    
    

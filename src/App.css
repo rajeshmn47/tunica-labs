@@ -283,7 +283,7 @@ table a{
 
 .radiobtns{
   margin-left: 10.5vw;
-  width: 10vw;
+  width: 12vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -367,4 +367,22 @@ table a{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.edit{
+  color: blue;
+  text-decoration: underline;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.delete{
+  color: blue;
+  margin-left: 1vw;
+  text-decoration: underline;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
+  background-color: transparent;
 }

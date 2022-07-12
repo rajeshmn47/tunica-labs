@@ -30,7 +30,10 @@ useEffect(()=>{
   setOk(true)
 },[])
 useEffect(()=>{
+  console.log('editing')
 if(ok){
+  console.log('hidimbe')
+  console.log(students,'hidimbesura')
   localStorage.setItem("students", JSON.stringify(students))
 }
 },[students])

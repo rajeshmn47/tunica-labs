@@ -15,24 +15,30 @@ export const Edit=({open,setOpen,values,setValues,students,setStudents,setMessag
             ...values,
             [name]: value
         })
-        console.log('rajesh')
+   
     }
     const handleClose = () => {
         setOpen(!open)
       };
-const handlesubmit=(e,id)=>{
-e.preventDefault()
+      console.log(values.id)
+const handlesubmit=(id)=>{
 var ss=students
-ss.forEach((s)=>{
-    if(s.id===id){
-        s=values
-    }
-})
-setStudents(ss)
+console.log(id,'raw')
+ss.forEach((k)=>{
+    if(k.id===id){
+        k.id=id
+        k.name=values.name
+        k.class=values.class
+        k.age=values.age
+        k.division=values.division
+        k.school=values.school  
+        console.log('ss',id)
+    }})
+setStudents([...ss])
 setOpen(!open)
 setMessage('Successfully Added!')
-console.log('rajeshkrewqyuo')
 setNotification(true)
+console.log('edited all of it')
 }
     return(
         <>
@@ -50,7 +56,7 @@ setNotification(true)
             </div>
             <div className="popup_right">
     
-<form className='form' onSubmit={(e)=>handlesubmit(e,values.id)}>
+<form className='form'>
 <h5>Name</h5>
 <input type='text' className='forminput' name='name'  value={values.name}
                         onChange={handleInputChange}/>
@@ -80,7 +86,7 @@ setNotification(true)
             </div>
             <div className='editbtns'>
     <button className='cancel' onClick={handleClose}>cancel</button>
-    <button className='add' onClick={(e)=>handlesubmit(e,values.id)} type='submit'>add</button>
+    <button className='add' onClick={(e)=>handlesubmit(values.id)} type='submit'>add</button>
     </div>
             </div>
 
