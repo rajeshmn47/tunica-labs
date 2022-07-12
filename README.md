@@ -1,3 +1,4 @@
+![Web capture_12-7-2022_8511_localhost](https://user-images.githubusercontent.com/24763499/178401652-5cb710e0-658f-4b57-b8e3-a2b67fddb07a.jpeg)
 routes available here are 
 home route - https://tunicalabsrajesh.netlify.app/home .\
 add route - https://tunicalabsrajesh.netlify.app/addstudent .\
