@@ -1,3 +1,9 @@
+routes available here are 
+https://tunicalabs.netlify.app/home
+https://tunicalabs.netlify.app/addstudent
+https://tunicalabs.netlify.app/signup
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
