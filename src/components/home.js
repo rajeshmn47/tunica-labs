@@ -7,7 +7,6 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import logo from './../logo192.png';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
@@ -15,6 +14,9 @@ import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import { useNavigate } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import Edit from './edit.js'
+import logo from './../images/logo192.png'
+import { ExportToCsv } from 'export-to-csv';
+
  
 
 function Home({values,setValues,students,setStudents}) {
@@ -28,7 +30,11 @@ const[pagecount,setPagecount]=useState(Math.ceil(students.length/8))
 const[studentsperpage,setStudentsperpage]=useState()
 const[notification,setNotification]=useState(false)
 const navigate=useNavigate()
-
+let settings = {
+        fileName: "MySpreadsheet", // Name of the resulting spreadsheet
+        extraLength: 3, // A bigger number means that columns will be wider
+        writeOptions: {}, // Style options from https://github.com/SheetJS/sheetjs#writing-options
+      }
 useEffect(()=>{
 setRoute('/home')
 const students_perpage=students.filter((s,index)=>index>=(page-1)*8&&index<page*8)
@@ -86,6 +92,26 @@ setPage(newPage)
 const handledelete=(i)=>{
     setStudents(students.filter((s)=>!(s.id===i)))
 setMessage('Successfully deleted')
+}
+const generateexcel=()=>{
+        console.log('ok',students)
+        const options = { 
+                fieldSeparator: ',',
+                quoteStrings: '"',
+                decimalSeparator: '.',
+                showLabels: true, 
+                showTitle: true,
+                title: 'My Awesome CSV',
+                useTextFile: false,
+                useBom: true,
+                useKeysAsHeaders: true,
+                // headers: ['Column 1', 'Column 2', etc...] <-- Won't work with useKeysAsHeaders present!
+              };            
+        const csvExporter = new ExportToCsv(options);
+ 
+        csvExporter.generateCsv(students);    
+      
+  
 }
   return (
   <>
@@ -194,7 +220,8 @@ Class
     </div>
   
 </div>
-<button className='excelbtn'>Download Excel <FileDownloadIcon/></button>
+<button className='excelbtn' onClick={generateexcel}>Download Excel <FileDownloadIcon/></button>
+
 </div>
 </div>
   </div>

@@ -7,7 +7,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import logo from './../logo192.png';
+import logo from './../images/logo192.png';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
@@ -43,8 +43,7 @@ const handlechange=(e)=>{
   var name=e.target.name
   var value=e.target.value
   console.log(name,value,'rajesh')
-  setValues({...values,[name]:value})
-  setValues({...values,id:Math.random()})
+  setValues({...values,[name]:value,id:Math.random()})
 } 
 const handlesubmit=(e)=>{
   e.preventDefault()
