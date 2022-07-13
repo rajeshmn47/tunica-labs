@@ -17,7 +17,7 @@ const initialvalues={
   school:'',
   class:'',
   division:'',
-  status:''
+  status:'true'
 }
 const[values,setValues]=useState(initialvalues)
 useEffect(()=>{
