@@ -45,6 +45,7 @@ const searchstudents=()=>{
 var a=search.name
 var b=search.value
 console.log(search,a,b)
+var st;
 if(a==='name'){
  var st= students.filter((s)=>s.name.indexOf(b)>-1)
 }
@@ -61,7 +62,7 @@ if(a==='school'){
         var st= students.filter((s)=>s.age.indexOf(b)>-1)
        }
  console.log(st)
-setStudents([...st])
+setStudentsperpage([...st])
 }
 const handlesearchchange=(e)=>{
         var name=e.target.name

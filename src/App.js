@@ -49,7 +49,7 @@ if(ok){
   <Route path='/home' element={<Home values={values} setValues={setValues} students={students} 
   setStudents={setStudents}/>}/>
   <Route path='/addstudent' element={<Addstudent values={values} setValues={setValues} 
-  students={students}   setStudents={setStudents}/>}/>
+  students={students} initialvalues={initialvalues}  setStudents={setStudents}/>}/>
 </Routes>
 </BrowserRouter>
 </div>

@@ -13,13 +13,24 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import { useNavigate } from 'react-router-dom';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close'
 
-function Addstudent({values,setValues,students,setStudents}) {
+function Addstudent({values,setValues,students,setStudents,initialvalues}) {
 const symbols=new Array(16).fill(null)
 const table=new Array(9).fill(null)
 const[route,setRoute]=useState()
-
+const[notification,setNotification]=useState(false)
 const navigate=useNavigate()
+useEffect(()=>{
+setTimeout(() => {
+  setNotification(false)
+}, 3000);
+},[notification])
 useEffect(()=>{
     setRoute('/addstudent')
     },[])
@@ -39,10 +50,12 @@ const handlesubmit=(e)=>{
   console.log(values)
   setStudents([...students,values])
   console.log(students)
-  
+  setNotification(true)
+  setValues(initialvalues)
 }
   return (
   <>
+ 
   <div className='navbar'>
     TUNICALABS MEDIA
     <div className='navbar_right'>
@@ -95,11 +108,13 @@ const handlesubmit=(e)=>{
 </div>
 </div>
 <input type='submit' className='addinputbtn' value='Save'/>
+{notification&&<h1 style={{color:'blue',marginLeft:'5vw',fontSize:'14px'}}>Successfully Added</h1>}
 </form>
 </div>
 
  
   </div>  </div>
+ 
   </>
   );
 }
