@@ -16,6 +16,7 @@ import Pagination from '@mui/material/Pagination';
 import Edit from './edit.js'
 import logo from './../images/logo192.png'
 import { ExportToCsv } from 'export-to-csv';
+import xlsx from "json-as-xlsx";
 
  
 
@@ -110,8 +111,6 @@ const generateexcel=()=>{
         const csvExporter = new ExportToCsv(options);
  
         csvExporter.generateCsv(students);    
-      
-  
 }
   return (
   <>
