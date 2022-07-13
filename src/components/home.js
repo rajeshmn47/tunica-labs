@@ -61,18 +61,25 @@ if(a==='name'){
 if(a==='school'){
         var st= students.filter((s)=>s.school.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
-       if(a==='class'){
+if(a==='class'){
         var st= students.filter((s)=>s.class.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
-       if(a==='division'){
+if(a==='division'){
         var st= students.filter((s)=>s.division.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
-       if(a==='age'){
+if(a==='age'){
         var st= students.filter((s)=>s.age.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
- console.log(st)
+ console.log(search)
+if(search.value.length>0){
 setStudentsperpage([...st])
 }
+else{
+const students_perpage=students.filter((s,index)=>index>=(page-1)*8&&index<page*8)  
+setStudentsperpage([...students_perpage])    
+}
+}
+
 const handlesearchchange=(e)=>{
         var name=e.target.name
         var value=e.target.value
@@ -111,6 +118,10 @@ const generateexcel=()=>{
         const csvExporter = new ExportToCsv(options);
  
         csvExporter.generateCsv(students);    
+}
+const getage=(a)=>{
+let age =new Date().getFullYear()-new Date(a).getFullYear()
+return age;
 }
   return (
   <>
@@ -189,7 +200,7 @@ Class
         {t.name}
                 </td>
                 <td>
-        {t.age}
+        {getage(t.age)}
                 </td>
                 <td>
         {t.school}

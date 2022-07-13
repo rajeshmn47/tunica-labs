@@ -83,7 +83,7 @@ const handlesubmit=(e)=>{
 </div>
 <div className='formfield'>
 <h2>Date Of Birth</h2>
-<input type='text' name='age' value={values.age} onChange={handlechange} className='addinput' placeholder='DD/MM/YYYY'/>
+<input type='text' name='age' value={values.age} onChange={handlechange} className='addinput' placeholder='MM/DD/YYYY'/>
 </div>
 <div className='formfield'>
 <h2>School</h2>
