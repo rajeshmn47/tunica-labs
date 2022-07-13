@@ -17,12 +17,17 @@ import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
+import {isMatch} from 'date-fns'
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close'
+import moment from 'moment';
 
 function Addstudent({values,setValues,students,setStudents,initialvalues}) {
 const symbols=new Array(16).fill(null)
 const table=new Array(9).fill(null)
+const[error,setError]=useState({
+  isError:false,message:''
+})
 const[route,setRoute]=useState()
 const[notification,setNotification]=useState(false)
 const navigate=useNavigate()
@@ -42,15 +47,32 @@ useEffect(()=>{
 const handlechange=(e)=>{
   var name=e.target.name
   var value=e.target.value
-  console.log(name,value,'rajesh')
+  
   setValues({...values,[name]:value,id:Math.random()})
-} 
+if(name==='age'){
+  var match=moment(value, 'MM/DD/YYYY',true).isValid();
+console.log('rajesh',match)
+if(match){
+  setValues({...values,[name]:value,id:Math.random()})
+  setError({isError:false,
+    message:'Date format should be MM/DD/YYYY'})
+}
+else{
+  setError({isError:true,
+    message:'Date format should be MM/DD/YYYY'})
+}
+}
+}
+
+ 
 const handlesubmit=(e)=>{
   e.preventDefault()
+  if(!(error.isError)){
   setStudents([...students,values])
   setNotification(true)
   console.log(values,'active')
   setValues(initialvalues)
+  }
 }
   return (
   <>
@@ -108,6 +130,7 @@ const handlesubmit=(e)=>{
 </div>
 <input type='submit' className='addinputbtn' value='Save'/>
 {notification&&<h1 style={{color:'blue',marginLeft:'5vw',fontSize:'14px'}}>Successfully Added</h1>}
+{error.isError&&<h1 style={{color:'blue',marginLeft:'5vw',fontSize:'14px'}}>{error.message}</h1>}
 </form>
 </div>
 
