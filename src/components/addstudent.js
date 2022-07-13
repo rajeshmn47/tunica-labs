@@ -67,12 +67,21 @@ else{
  
 const handlesubmit=(e)=>{
   e.preventDefault()
-  if(!(error.isError)){
-  setStudents([...students,values])
-  setNotification(true)
-  console.log(values,'active')
-  setValues(initialvalues)
+  var k=Object.values(values).filter((x)=>(x===''))
+  console.log(k,'kutthe')
+if(k.length>0){
+setError({isError:true,message:'Fill all fields'})
   }
+else{
+    setError({isError:false,message:'Fill all fields'}) 
+    if(!(error.isError)){
+      setStudents([...students,values])
+      setNotification(true)
+      console.log(values,'active')
+      setValues(initialvalues)
+      }
+  }
+
 }
   return (
   <>
