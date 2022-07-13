@@ -51,19 +51,19 @@ var b=search.value
 console.log(search,a,b)
 var st;
 if(a==='name'){
- var st= students.filter((s)=>s.name.indexOf(b)>-1)
+ var st= students.filter((s)=>s.name.toUpperCase().indexOf(b.toUpperCase())>-1)
 }
 if(a==='school'){
-        var st= students.filter((s)=>s.school.indexOf(b)>-1)
+        var st= students.filter((s)=>s.school.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
        if(a==='class'){
-        var st= students.filter((s)=>s.class.indexOf(b)>-1)
+        var st= students.filter((s)=>s.class.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
        if(a==='division'){
-        var st= students.filter((s)=>s.division.indexOf(b)>-1)
+        var st= students.filter((s)=>s.division.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
        if(a==='age'){
-        var st= students.filter((s)=>s.age.indexOf(b)>-1)
+        var st= students.filter((s)=>s.age.toUpperCase().indexOf(b.toUpperCase())>-1)
        }
  console.log(st)
 setStudentsperpage([...st])
