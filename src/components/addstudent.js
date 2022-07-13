@@ -42,15 +42,15 @@ useEffect(()=>{
 const handlechange=(e)=>{
   var name=e.target.name
   var value=e.target.value
+  console.log(name,value,'rajesh')
   setValues({...values,[name]:value})
+  setValues({...values,id:Math.random()})
 } 
 const handlesubmit=(e)=>{
   e.preventDefault()
-  setValues({...values,id:Math.random()})
-  console.log(values)
   setStudents([...students,values])
-  console.log(students)
   setNotification(true)
+  console.log(values,'active')
   setValues(initialvalues)
 }
   return (
@@ -101,10 +101,10 @@ const handlesubmit=(e)=>{
 <div className='formfieldradio'>
 <h2>status</h2>
 <div className='radiobtns'>
-<input type='radio' name='status' value={values.status} onChange={handlechange} placeholder='Name'/>
+<input type='radio' name='status' value={true} onChange={handlechange} placeholder='Name'/>
 <label>Active</label>
-<input type='radio' name='status' value={values.status} onChange={handlechange} placeholder='Name'/>
-<label>Invoice</label>
+<input type='radio' name='status' value={false} onChange={handlechange} placeholder='Name'/>
+<label>Inactive</label>
 </div>
 </div>
 <input type='submit' className='addinputbtn' value='Save'/>

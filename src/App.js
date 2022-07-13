@@ -26,14 +26,12 @@ useEffect(()=>{
   if(student){
   setStudents(student)
   }
-  console.log(student)
   setOk(true)
 },[])
 useEffect(()=>{
   console.log('editing')
 if(ok){
-  console.log('hidimbe')
-  console.log(students,'hidimbesura')
+  console.log(students)
   localStorage.setItem("students", JSON.stringify(students))
 }
 },[students])

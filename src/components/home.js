@@ -34,7 +34,6 @@ setRoute('/home')
 const students_perpage=students.filter((s,index)=>index>=(page-1)*8&&index<page*8)
 setStudentsperpage(students_perpage)
 setPagecount(Math.ceil(students.length/8))
-console.log(pagecount,'rajuespagecount',students.length/8,students)
 },[page,students])
 useEffect(()=>{
         setTimeout(() => {
@@ -48,7 +47,6 @@ const handleclick=(a)=>{
 const searchstudents=()=>{
 var a=search.name
 var b=search.value
-console.log(search,a,b)
 var st;
 if(a==='name'){
  var st= students.filter((s)=>s.name.toUpperCase().indexOf(b.toUpperCase())>-1)
@@ -178,7 +176,7 @@ Class
         {t.division}
                 </td>          
                 <td>
-        {t.active&&t.active}
+        {t.active?'Active':'Inactive'}
                 </td> 
                 <td>
         <button className='edit'  onClick={()=>handleclickedit(t.id)}>Edit</button>
