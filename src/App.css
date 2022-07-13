@@ -386,3 +386,8 @@ table a{
   border: none;
   background-color: transparent;
 }
+.maintwo_notify{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

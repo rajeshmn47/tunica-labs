@@ -36,7 +36,11 @@ setStudentsperpage(students_perpage)
 setPagecount(Math.ceil(students.length/8))
 console.log(pagecount,'rajuespagecount',students.length/8,students)
 },[page,students])
-
+useEffect(()=>{
+        setTimeout(() => {
+          setMessage(null)
+        }, 3000);
+        },[message])
 const handleclick=(a)=>{
     setRoute(a)
     navigate(a)
@@ -75,6 +79,7 @@ console.log(i)
     setValues(v)
     console.log(values)
     setOpen(true)
+    setMessage('Successfully edited')
 }
 const handlepagechange=(event,newPage)=>{
 console.log(newPage)
@@ -82,7 +87,7 @@ setPage(newPage)
 }
 const handledelete=(i)=>{
     setStudents(students.filter((s)=>!(s.id===i)))
-
+setMessage('Successfully deleted')
 }
   return (
   <>
@@ -105,7 +110,10 @@ const handledelete=(i)=>{
 <h3></h3>
 </div>
 <div className='maintwo'>
+<div className='maintwo_notify'>
    <h5 style={{color:'red',fontSize:'16px'}}>View Student</h5>
+   {message&&<h1 style={{color:'red',marginLeft:'5vw',fontSize:'14px'}}>{message}</h1>}
+   </div>
 <div className='homeinputs'>
 <input type='text' className='homeinput' placeholder='Name' name='name' onChange={handlesearchchange}/>
 <input type='text' className='homeinput' placeholder='Age' name='age' onChange={handlesearchchange}/>
