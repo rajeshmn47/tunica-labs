@@ -16,8 +16,6 @@ import Pagination from '@mui/material/Pagination';
 import Edit from './edit.js'
 import logo from './../images/logo192.png'
 import { ExportToCsv } from 'export-to-csv';
-import xlsx from "json-as-xlsx";
-
  
 
 function Home({values,setValues,students,setStudents}) {
@@ -212,7 +210,7 @@ Class
         {t.division}
                 </td>          
                 <td>
-        {t.active?'Active':'Inactive'}
+        {t.active?'Inctive':'active'}
                 </td> 
                 <td>
         <button className='edit'  onClick={()=>handleclickedit(t.id)}>Edit</button>
@@ -231,6 +229,7 @@ Class
   
 </div>
 <button className='excelbtn' onClick={generateexcel}>Download Excel <FileDownloadIcon/></button>
+
 
 </div>
 </div>
