@@ -222,6 +222,64 @@ Class
     </>)}
     </tbody>
     </table>
+    <table id='tabletwos'>
+        <tr id='table_head'>
+ 
+    <th>
+Name
+    </th> 
+    <th>
+    Age
+    </th> 
+    <th>
+    School
+    </th> 
+    <th>
+Class
+    </th> 
+    <th>
+    Division
+    </th> 
+    <th>
+    Status
+    </th> 
+ 
+    </tr>
+    <tr>
+    <th>
+    
+    </th> 
+        </tr>  
+<tbody>
+{studentsperpage?.map((t,index)=><>
+        <tr className='tablerows'>
+         
+                <td>
+        {t.name}
+                </td>
+                <td>
+        {getage(t.age)}
+                </td>
+                <td>
+        {t.school}
+                </td>
+                <td>
+        {t.class}
+                </td> 
+                <td>
+        {t.division}
+                </td>          
+              
+                <td className='lastcolumn'>
+        <button className='edit'  onClick={()=>handleclickedit(t.id)}>Edit</button>
+              
+        <button className='delete'  onClick={()=>handledelete(t.id)}>Delete</button>
+                </td>                   
+                </tr>    
+   
+    </>)}
+    </tbody>
+    </table>  
     <div className='pages'>
  
     <Pagination count={pagecount} onChange={handlepagechange} variant="outlined" shape="rounded" />
@@ -237,6 +295,7 @@ Class
   <Edit notification={notification} setNotification={setNotification} values={values} open={open}
    setOpen={setOpen}   setValues={setValues} setStudents={setStudents} 
    students={students} setMessage={setMessage}/>
+   
   </>
   );
 }

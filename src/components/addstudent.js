@@ -129,7 +129,7 @@ else{
 <input type='text' name='division' value={values.division} onChange={handlechange} className='addinput' placeholder='select'/>
 </div>
 <div className='formfieldradio'>
-<h2>status</h2>
+<h2>Status</h2>
 <div className='radiobtns'>
 <input type='radio' name='status' value={true} onChange={handlechange} placeholder='Name'/>
 <label>Active</label>
