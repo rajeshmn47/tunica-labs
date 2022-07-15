@@ -100,7 +100,7 @@ else{
   <div className='main'>
 <div className='mainone'>
 <h1>Student <KeyboardArrowDownIcon/></h1>
-<h2 onClick={()=>handleclick('/home')} className={route==='/home'?'homeroute':null}><AccessibilityIcon/>View Student</h2>
+<h2 onClick={()=>handleclick('/')} className={route==='/'?'homeroute':null}><AccessibilityIcon/>View Student</h2>
 <h2 onClick={()=>handleclick('/addstudent')} className={route==='/addstudent'?'addroute':null}><PersonAddAlt1Icon/>Add Student</h2>
 <h3></h3>
 </div>

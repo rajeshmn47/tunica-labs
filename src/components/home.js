@@ -35,7 +35,7 @@ let settings = {
         writeOptions: {}, // Style options from https://github.com/SheetJS/sheetjs#writing-options
       }
 useEffect(()=>{
-setRoute('/home')
+setRoute('/')
 const students_perpage=students.filter((s,index)=>index>=(page-1)*8&&index<page*8)
 setStudentsperpage(students_perpage)
 setPagecount(Math.ceil(students.length/8))
@@ -137,7 +137,7 @@ return age;
   <div className='main'>
 <div className='mainone'>
 <h1>Student <KeyboardArrowDownIcon/></h1>
-<h2 onClick={()=>handleclick('/home')} className={route==='/home'?'homeroute':null}><AccessibilityIcon/>View Student</h2>
+<h2 onClick={()=>handleclick('/')} className={route==='/'?'homeroute':null}><AccessibilityIcon/>View Student</h2>
 <h2 onClick={()=>handleclick('/addstudent')} className={route==='/addstudent'?'addroute':null}><PersonAddAlt1Icon/>Add Student</h2>
 <h3></h3>
 </div>

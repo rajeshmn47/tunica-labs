@@ -412,6 +412,7 @@ table a{
     width: 100vw;
     border: none;
     box-sizing: border-box;
+    box-sizing: border-box;
   }
   table{
     width: 80vw;
@@ -423,9 +424,7 @@ table a{
   .lastcolumn{
     width: 20vw;
   }
-  .table_head{
-    width: 100vw;
-  }
+ 
   .maintwo{
     width: 100%;
     width: 100vw;
