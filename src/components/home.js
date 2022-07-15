@@ -124,7 +124,7 @@ return age;
   return (
   <>
   <div className='navbar'>
-    TUNICALABS MEDIA
+    Student Management System
     <div className='navbar_right'>
     <Badge badgeContent={4} color="error">
     <NotificationsIcon/>

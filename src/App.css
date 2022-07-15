@@ -411,6 +411,7 @@ table a{
     flex-direction: column;
     width: 100vw;
     border: none;
+    box-sizing: border-box;
   }
   table{
     width: 80vw;
