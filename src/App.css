@@ -494,14 +494,14 @@ table a{
     font-size: 12px;
     margin-top: 1vh;
   }
-  .form{
+  .addinputs{
     position: relative;
   }
   .addinputbtn{
     width: 80vw;
     margin-left: 0vw;
     position: absolute;
-    top: 88%;
+    top: 101%;
     left: 10%;
   }
   .navbar_right{
