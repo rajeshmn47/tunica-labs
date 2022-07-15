@@ -490,18 +490,20 @@ table a{
   }
   .radiobtns{
     margin: 0vw;
-    display: none;
+    width: 22vw;
+    font-size: 12px;
+    margin-top: 1vh;
   }
   .addinputbtn{
     width: 80vw;
     margin-left: 0vw;
     position: fixed;
-    top: 85%;
+    top: 88%;
     left: 10%;
   }
   .navbar_right{
-    width: 25vw;
-    margin-right: 15vw;
+    width: 20vw;
+    margin-right: 10vw;
   }
   .imagesmall{
     width: 4vw;
@@ -512,5 +514,9 @@ table a{
   .navbar_right p{
     width: 2vw;
     margin-left: 1vw;
+  }
+  .addinputs{
+   margin: 0;
+    margin-top: 1vh;
   }
 }
