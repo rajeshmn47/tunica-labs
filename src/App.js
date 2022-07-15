@@ -42,9 +42,9 @@ if(ok){
 
 <Routes>
 
-  <Route path='/' element={<Login/>}/>
+  <Route path='/login' element={<Login/>}/>
   <Route path='/signup' element={<Signup/>}/>
-  <Route path='/home' element={<Home values={values} setValues={setValues} students={students} 
+  <Route path='/' element={<Home values={values} setValues={setValues} students={students} 
   setStudents={setStudents}/>}/>
   <Route path='/addstudent' element={<Addstudent values={values} setValues={setValues} 
   students={students} initialvalues={initialvalues}  setStudents={setStudents}/>}/>
