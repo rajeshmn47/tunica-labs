@@ -87,7 +87,7 @@ else{
   <>
  
   <div className='navbar'>
-    Student Management System
+    STUDENT MANAGEMENT SYSTEM
     <div className='navbar_right'>
     <Badge badgeContent={4} color="error">
     <NotificationsIcon/>
